@@ -1,0 +1,57 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroup": {
+            "required": true,
+            "type": "string"
+        },
+        "registrationName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Registration resource",
+            "properties": {
+                "location": {
+                    "description": "Location of the resource.",
+                    "enum": [
+                        "global"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "Location"
+                    },
+                    "x-ms-mutability": [
+                        "create",
+                        "read"
+                    ]
+                },
+                "properties": {
+                    "description": "Properties of the Azure Stack registration resource",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "registrationToken": {
+                            "description": "The token identifying registered Azure Stack",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "registrationToken"
+                    ],
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string",
+            "default": "2017-06-01"
+        }
+    }
+}
